@@ -1,0 +1,17 @@
+services:
+  crawler:
+    build: .
+    network_mode: "container:docker_vpn-vpn-1"
+    volumes:
+      - /home/victor/.config/BraveSoftware/Brave-Browser:/brave-profile:ro
+      - ./debug:/app/debug
+      - ./data:/app/data
+      - ./.env:/app/.env
+      - ./localstorage/:/app/localstorage
+    depends_on:
+      - vpn-check
+
+  vpn-check:
+    image: alpine
+    network_mode: "container:docker_vpn-vpn-1"
+    command: sh -c "wget -O- https://ifconfig.me && echo"
