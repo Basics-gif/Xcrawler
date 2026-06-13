@@ -1,4 +1,4 @@
-# go_crawler
+# Xcrawler
 
 Crawler em Go usando [Playwright](https://github.com/playwright-community/playwright-go) para navegar autenticado via cookies de sessão, extrair listas de vídeos embutidas em JSON (`window.initials`), classificar cada item por plano (`paid`/`free`) e persistir os resultados em SQLite.
 
